@@ -6,7 +6,7 @@
 + Instale as dependências via **Composer** com o seguinte comando: `composer require electrolinux/phpquery`, e;
 + Combine a pasta `src` do serviço com a do framework ou copie o arquivo para a pasta: `src/HXPHP/System/Services`.
 
-----
+
 
 ## Uso
 
