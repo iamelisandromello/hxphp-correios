@@ -12,7 +12,10 @@
 
 + Carregue o serviço no **controller**:
 ```php
-$this->load('Services\Correios', 'http://m.correios.com.br/movel/buscaCepConfirma.do', $this->request->get('cep'));
+$this->load(
+    'Services\Correios',
+    'http://m.correios.com.br/movel/buscaCepConfirma.do',
+    $this->request->get('cep'));
 ```
 
 + Armazene os dados, como objeto, em uma variável:
