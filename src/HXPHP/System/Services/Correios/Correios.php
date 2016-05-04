@@ -1,6 +1,6 @@
 <?php 
 
-namespace HXPHP\System\Services;
+namespace HXPHP\System\Services\Correios;
 
 class Correios
 {
