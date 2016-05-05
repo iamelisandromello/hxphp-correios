@@ -9,6 +9,9 @@ class Correios
 
 	public function __construct($url, $cep)
 	{
+		if (!class_exists('phpQuery'))
+			throw new \Exception("Dependencias obrigatorias nao encontradas. Rode o comando: composer require electrolinux/phpquery", 1);
+			
 		if (is_null($cep) || empty($cep) || $cep === false)
 			throw new \Exception("CorreiosHX: Informe um CEP valido.", 1);
 
