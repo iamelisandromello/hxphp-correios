@@ -4,7 +4,7 @@
 ## Instalação
 
 + Instale as dependências via **Composer** com o seguinte comando: `composer require electrolinux/phpquery`, e;
-+ Copie a pasta `Correios` para a pasta: `src/HXPHP/System/Services`.
++ Copie a pasta `Correios` para a pasta de serviços: `src/HXPHP/System/Services`.
 
 
 
