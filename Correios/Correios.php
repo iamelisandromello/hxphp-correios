@@ -12,7 +12,7 @@ class Correios
 		if (!class_exists('phpQuery'))
 			throw new \Exception("Dependencias obrigatorias nao encontradas. Rode o comando: composer require electrolinux/phpquery", 1);
 			
-		if (is_null($cep) || empty($cep) || $cep === false)
+		if (!$cep)
 			throw new \Exception("CorreiosHX: Informe um CEP valido.", 1);
 
 		$this->setHTML($url, $cep)
@@ -33,7 +33,7 @@ class Correios
 
 	public function setDados()
 	{
-		if (is_null($this->html) || $this->html === false)
+		if (!$this->html)
 			throw new \Exception("CorreiosHX: Nao foi possivel obter os dados HTML. Verifique se a primeira etapa do processo foi bem sucedida.", 1);
 
 		\phpQuery::newDocumentHTML($this->html, $charset = 'utf-8');
@@ -56,7 +56,7 @@ class Correios
 
 	public function getDados()
 	{
-		if (!is_array($this->dados) || empty($this->dados))
+		if (!is_array($this->dados) || !$this->dados)
 			throw new \Exception("CorreiosHX: Nao foi possivel obter os dados. Verifique se a segunda etapa do processo foi bem sucedida.", 1);
 
 		return json_encode($this->dados);
