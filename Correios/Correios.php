@@ -5,7 +5,7 @@ namespace HXPHP\System\Services\Correios;
 class Correios
 {
 	private $html = null;
-	private $dados = array();
+	private $dados = [];
 
 	public function __construct($url, $cep)
 	{
@@ -21,12 +21,12 @@ class Correios
 
 	public function setHTML($url, $cep)
 	{
-		$this->html = SimplecURL::connect($url, array(
+		$this->html = SimplecURL::connect($url, [
 			'cepEntrada' => $cep,
 			'tipoCep' => '',
 			'cepTemp' => '',
 			'metodo' => 'buscarCep'
-		));
+		]);
 
 		return $this;
 	}
@@ -38,12 +38,12 @@ class Correios
 
 		\phpQuery::newDocumentHTML($this->html, $charset = 'utf-8');
 
-		$this->dados = array(
+		$this->dados = [
 			'logradouro' => trim(pq('.caixacampobranco .resposta:contains("Logradouro: ") + .respostadestaque:eq(0)')->html()),
 			'bairro' => trim(pq('.caixacampobranco .resposta:contains("Bairro: ") + .respostadestaque:eq(0)')->html()),
 			'cidade/uf' => trim(pq('.caixacampobranco .resposta:contains("Localidade / UF: ") + .respostadestaque:eq(0)')->html()),
 			'cep' => trim(pq('.caixacampobranco .resposta:contains("CEP: ") + .respostadestaque:eq(0)')->html())
-		);
+		];
 
 		$this->dados['cidade/uf'] = explode('/',$this->dados['cidade/uf']);
 		$this->dados['cidade'] = trim($this->dados['cidade/uf'][0]);
