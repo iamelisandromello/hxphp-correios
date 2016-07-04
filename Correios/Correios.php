@@ -7,10 +7,13 @@ class Correios
 	private $html = null;
 	private $dados = [];
 
-	public function __construct($url, $cep)
+	public function __construct($cep, $url = null)
 	{
 		if (!class_exists('phpQuery'))
 			throw new \Exception("Dependencias obrigatorias nao encontradas. Rode o comando: composer require electrolinux/phpquery", 1);
+
+		if (is_null($url))
+			$url = 'http://m.correios.com.br/movel/buscaCepConfirma.do';
 			
 		if (!$cep)
 			throw new \Exception("CorreiosHX: Informe um CEP valido.", 1);
