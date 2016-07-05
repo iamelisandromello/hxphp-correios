@@ -18,8 +18,8 @@ $this->load(
 
 + Armazene os dados, como objeto, em uma variável:
 ```php
-$retornoJson = $this->correios->getDados();
-$enderecoObj = json_decode($retornoJson);
+$retornoJSON = $this->correios->getDados();
+$enderecoObj = json_decode($retornoJSON);
 ```
 
 + Utilize os parâmetros que desejar:
