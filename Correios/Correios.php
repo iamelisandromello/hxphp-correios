@@ -2,6 +2,8 @@
 
 namespace HXPHP\System\Services\Correios;
 
+use HXPHP\System\Services\SimplecURL as SimplecURL;
+
 class Correios
 {
 	private $html = null;
@@ -24,7 +26,7 @@ class Correios
 
 	public function setHTML($url, $cep)
 	{
-		$this->html = SimplecURL::connect($url, [
+		$this->html = SimplecURL\SimplecURL::connect($url, [
 			'cepEntrada' => $cep,
 			'tipoCep' => '',
 			'cepTemp' => '',
